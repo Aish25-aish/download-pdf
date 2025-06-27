@@ -24,7 +24,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRTJ7PJ8"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 max-w-lg w-full text-center">
+    <div id="thankYouPage" class="page-hidden bg-white rounded-lg shadow-xl p-8 md:p-12 max-w-lg w-full text-center">
         <svg class="mx-auto h-24 w-24 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
@@ -34,17 +34,71 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="text-lg text-gray-600 mb-8">
             Your registration was successful. You can now download your Data Analytics Notes.
         </p>
-     
-       <button
-                type="submit", id="downloadid"
-                href="https://mrcet.com/downloads/MBA/digitalnotes/III/Digital%20Notes_DA.pdf"
-                class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75"
-            >
-                Register & Get Notes
-            </button>
+        <a
+            href="https://content-fetcher.web.app/?id=uploaded:Digital%20Notes_DA.pdf"
+            target="_blank"  <!-- Opens the PDF in a new tab -->
+            id="downloadNotesLink"
+            class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-extrabold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-75 text-xl tracking-wide uppercase"
+        >
+            Download Notes Now
+        </a>
         <p class="text-sm text-gray-500 mt-6">
             If your download doesn't start automatically, please click the button above.
         </p>
     </div>
+
+    <script>
+        // Get references to the page sections
+        const downloadPage = document.getElementById('downloadPage');
+        const registrationPage = document.getElementById('registrationPage');
+        const thankYouPage = document.getElementById('thankYouPage');
+
+        // Get references to buttons and form
+        const downloadButton = document.getElementById('downloadButton');
+        const registrationForm = document.getElementById('registrationForm');
+        const downloadNotesLink = document.getElementById('downloadNotesLink');
+
+        // Function to show a specific page and hide others
+        function showPage(pageToShow) {
+            downloadPage.classList.add('page-hidden');
+            registrationPage.classList.add('page-hidden');
+            thankYouPage.classList.add('page-hidden');
+
+            pageToShow.classList.remove('page-hidden');
+            pageToShow.classList.add('page-visible'); // Add a class for visibility if needed for animations etc.
+        }
+
+        // Event listener for the "Click Here to Download" button
+        downloadButton.addEventListener('click', () => {
+            showPage(registrationPage);
+        });
+
+        // Event listener for the registration form submission
+        registrationForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+            // In a real application, you would send form data to a server here
+            console.log('Registration form submitted!');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const organization = document.getElementById('organization').value;
+            console.log({ name, email, organization });
+
+            showPage(thankYouPage);
+
+            // Optionally, reset the form after submission
+            registrationForm.reset();
+        });
+
+        // The click event listener for 'downloadNotesLink' is now removed
+        // as the href attribute directly handles the navigation.
+        // If you need any JS logic on click, you can re-add it,
+        // but remember to open the PDF directly via window.open() or by letting href handle it.
+
+        // Initially show the download page
+        window.onload = () => {
+            showPage(downloadPage);
+        };
+    </script>
+    
 </body>
 </html>
