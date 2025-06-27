@@ -3,48 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You!</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Thank You for Registering!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 max-w-2xl w-full text-center">
-        <!-- Thank You Message -->
-        <h1 class="text-4xl md:text-5xl font-bold text-green-700 mb-6 leading-tight">
-            Thank You!
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 max-w-lg w-full text-center">
+        <svg class="mx-auto h-24 w-24 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-6 mb-4">
+            Thank You for Registering!
         </h1>
-        <p class="text-lg md:text-xl text-gray-700 mb-8">
-            Your registration was successful. We appreciate you joining our community!
+        <p class="text-lg text-gray-600 mb-8">
+            Your registration was successful. You can now download your Data Analytics Notes.
         </p>
-
-        <!-- PDF Download Section -->
-        <div class="mb-10">
-            <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
-                As a Token of Our Appreciation, Here's Your Data Analytics PDF!
-            </h2>
-            <p class="text-md md:text-lg text-gray-600 mb-6">
-                Click the button below to download the comprehensive Data Analytics guide.
-            </p>
-            <!-- Direct link to the specified PDF -->
-            <a href="C:\Users\Aish9\Desktop\GA\day7\Digital Notes_DA.pdf" download="Digital_Notes_DA.pdf"
-               class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                Download Data Analytics PDF
-            </a>
-        </div>
-
-        <!-- Optional: Link back to home or other relevant page -->
-        <div class="mt-12 text-sm text-gray-500">
-            <p>
-                <a href="index.html" class="text-blue-600 hover:text-blue-500 font-medium">Return to Welcome Page</a>
-            </p>
-        </div>
+        <a
+            href="https://mrcet.com/downloads/MBA/digitalnotes/III/Digital%20Notes_DA.pdf"
+            target="_blank"  <!-- Opens the PDF in a new tab -->
+            class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-extrabold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-75 text-xl tracking-wide uppercase"
+        >
+            Download Notes Now
+        </a>
+        <p class="text-sm text-gray-500 mt-6">
+            If your download doesn't start automatically, please click the button above.
+        </p>
     </div>
 </body>
 </html>
